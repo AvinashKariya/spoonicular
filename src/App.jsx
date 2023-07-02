@@ -2,13 +2,18 @@ import styled from "styled-components";
 import Category from "./components/Category";
 import Search from "./components/Search";
 import Pages from "./pages/Pages";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GiKnifeFork } from "react-icons/gi";
 function App() {
+  const navigate = useNavigate();
   return (
     <div>
       <Nav>
-        <GiKnifeFork />
+        <GiKnifeFork
+          onClick={() => {
+            navigate("/");
+          }}
+        />
         <Logo to={"/"}>Spoonacular</Logo>
       </Nav>
       <Search />
@@ -32,6 +37,7 @@ const Nav = styled.div`
 
   svg {
     font-size: 2rem;
+    cursor: pointer;
   }
 `;
 export default App;
